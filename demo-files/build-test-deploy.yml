@@ -1,7 +1,7 @@
 name: build-test-deploy
 on: push
 
-jobs:
+jobs: # <--- This key was missing or misaligned
   build:
     runs-on: ubuntu-latest
     steps:
@@ -16,7 +16,7 @@ jobs:
       - run: npm install
       - run: npm run build
 
-  test:
+  test: # <--- Now correctly nested under 'jobs'
     needs: build
     runs-on: ubuntu-latest
     steps:
